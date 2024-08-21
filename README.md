@@ -1,6 +1,7 @@
 # mrfixo
 ## Folder Structure
 
+```bash
 /mrfixo
 │
 ├── /backend
@@ -42,6 +43,7 @@
 ├── .gitignore
 ├── README.md
 └── LICENSE (if needed)
+```
 
 ## Details of Each Directory
 
