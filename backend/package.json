@@ -1,32 +1,29 @@
 {
-    "name": "backend",
-    "version": "1.0.0",
-    "description": "Backend for your project",
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js",
-      "dev": "nodemon server.js",
-      "lint": "eslint .",
-      "test": "jest --config=jest.config.js",
-      "build": "npm run lint && npm test",
-      "prettier": "prettier --write .",
-      "serve": "node server.js"
-    },
-    "dependencies": {
-      "express": "^4.18.2",
-      "cors": "^2.8.5",
-      "dotenv": "^16.0.3",
-      "winston": "^3.8.1",
-      "mongoose": "^6.9.1", // If using MongoDB
-      "@google-cloud/translate": "^6.1.2"
-    },
-    "devDependencies": {
-      "nodemon": "^3.0.1",
-      "eslint": "^8.44.0",
-      "jest": "^29.6.2",
-      "prettier": "^3.1.1"
-    },
-    "author": "",
-    "license": "MIT"
-  }
-  
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend server for the application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.3",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "jest": "^29.6.0",
+    "nodemon": "^3.1.4"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
