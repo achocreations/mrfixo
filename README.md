@@ -1,4 +1,26 @@
 # mrfixo
+
+Creating a mobile app to bring all workers and home owners under one platform. Please check the below features.
+
+## Define the Scope and Features
+- User Profiles: Separate profiles for service providers (workers) and customers (homeowners).
+- Service Listings: Categories for various services (plumbing, cleaning, electrical, etc.).
+- Search & Filters: Users can search for services and filter results by location, price, ratings, etc.
+- Booking System: Allow customers to book services at their convenience.
+- Payment Gateway: Secure online payment integration (credit/debit cards, wallets, UPI, etc.).
+- Ratings & Reviews: Customers can leave feedback and rate the service providers.
+- Chat/Communication: In-app messaging or calling feature for customers and service providers.
+- Notifications: Alerts for booking confirmations, reminders, promotions, etc.
+- GPS & Location Services: Real-time location tracking of service providers.
+- Admin Panel: For managing users, services, payments, and overall app monitoring.
+
+## Technology Stack Suggestions:
+- Frontend: React Native, Flutter, or Swift (iOS), Kotlin/Java (Android)
+- Backend: Node.js with Express, Django, or Ruby on Rails
+- Database: MySQL, PostgreSQL, or MongoDB
+- Payment Gateway: Stripe, PayPal, Razorpay
+- Cloud Services: AWS, Google Cloud, or Azure
+
 ## Folder Structure
 
 ```bash
