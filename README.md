@@ -21,6 +21,90 @@ Creating a mobile app to bring all workers and home owners under one platform. P
 - Payment Gateway: Stripe, PayPal, Razorpay
 - Cloud Services: AWS, Google Cloud, or Azure
 
+## Backlog
+### High Priority
+These features are essential for enhancing user experience and driving engagement. They provide significant value with relatively low to moderate implementation complexity.
+1. **Service Provider Availability Scheduling**
+- Impact: High (Improves booking efficiency, reduces conflicts)
+- Effort: Moderate
+- Reason: Ensures that users can book services when providers are available, reducing frustration and improving the overall booking experience.
+
+2. **In-App Wallet**
+- Impact: High (Streamlines payments, encourages repeat usage)
+- Effort: Moderate to High
+- Reason: Simplifies payment processing and offers a convenient way to manage transactions, fostering loyalty through potential cashback or rewards.
+
+3. **Loyalty Program**
+- Impact: High (Increases customer retention)
+- Effort: Moderate
+- Reason: Encourages repeat bookings and boosts customer loyalty, which is crucial for the long-term success of the app.
+
+4. **Referral Program**
+- Impact: High (User acquisition, organic growth)
+- Effort: Low to Moderate
+- Reason: Drives new user acquisition at a low cost, leveraging existing users to bring in more customers.
+
+### Medium Priority
+These features enhance the app's functionality and user experience but can be developed after the high-priority items.
+
+1. **Ratings & Certifications for Service Providers**
+- Impact: Moderate (Builds trust, improves decision-making)
+- Effort: Moderate
+- Reason: Helps customers make informed choices and motivates providers to maintain high standards.
+
+2. **Service Bundles and Offers**
+- Impact: Moderate (Increases average transaction value)
+- Effort: Moderate
+- Reason: Encourages users to purchase multiple services, boosting revenue.
+
+3. **Multi-Language Support**
+- Impact: Moderate (Increases accessibility)
+- Effort: Moderate
+- Reason: Expands the user base by catering to non-English speakers, enhancing user inclusivity.
+
+4. **Service History & Rebooking**
+- Impact: Moderate (Convenience, user retention)
+- Effort: Low to Moderate
+- Reason: Simplifies the rebooking process, especially for frequent users, leading to higher engagement.
+
+5. **Advanced Analytics for Service Providers**
+- Impact: Moderate (Provider satisfaction, service quality)
+- Effort: Moderate to High
+- Reason: Gives service providers valuable insights to improve their services, leading to better overall user satisfaction.
+
+### Low Priority
+These features are more specialized or advanced and can be considered for future iterations of the app once the core functionality is robust.
+
+1. **Video Consultation**
+- Impact: Moderate (Enhances communication, especially for complex services)
+- Effort: High
+- Reason: While valuable, this feature may be more relevant to niche services and requires significant development effort.
+
+2. **Dynamic Pricing**
+- Impact: Moderate (Maximizes revenue)
+- Effort: High
+- Reason: Useful for peak times but complex to implement and might be confusing for users if not done carefully.
+
+3. **Task Tracking and Reporting**
+- Impact: Moderate (Transparency, user satisfaction)
+- Effort: Moderate to High
+- Reason: Adds value for customers tracking long-term or complex projects, but it’s less critical for simple or one-time services.
+
+4. **Emergency Services**
+- Impact: Moderate (Addresses urgent needs)
+- Effort: Moderate
+- Reason: Useful for certain service types, but may not be necessary for all users or services.
+
+5. **Customer Support Integration**
+- Impact: Moderate (Improves user support)
+- Effort: Moderate
+- Reason: While important, this feature can be implemented with simpler methods initially (e.g., email support) and expanded later.
+
+6. **Custom Service Requests**
+- Impact: Low to Moderate (Flexibility for users)
+- Effort: Moderate
+- Reason: Offers flexibility for unique needs but may require significant backend adjustments and manual handling initially.
+
 ## Folder Structure
 
 ```bash
