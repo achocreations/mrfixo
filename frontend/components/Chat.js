@@ -1,30 +1,42 @@
-import React, { useState } from 'react';
+// /frontend/components/Chat.js
+import React, { useState, useEffect } from 'react';
 import { View, TextInput, Button, FlatList, Text, StyleSheet } from 'react-native';
+import { fetchMessages, sendMessage } from '../services/chatService';
 
-const Chat = ({ messages, onSendMessage }) => {
+const Chat = ({ conversationId }) => {
+  const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
 
-  const handleSend = () => {
-    if (message.trim()) {
-      onSendMessage(message);
-      setMessage('');
-    }
+  useEffect(() => {
+    const loadMessages = async () => {
+      const fetchedMessages = await fetchMessages(conversationId);
+      setMessages(fetchedMessages);
+    };
+    loadMessages();
+  }, [conversationId]);
+
+  const handleSend = async () => {
+    const newMessage = await sendMessage(conversationId, message);
+    setMessages([...messages, newMessage]);
+    setMessage('');
   };
 
   return (
     <View style={styles.container}>
       <FlatList
         data={messages}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <Text style={styles.message}>{item}</Text>
+          <View style={styles.message}>
+            <Text style={styles.text}>{item.text}</Text>
+          </View>
         )}
       />
       <TextInput
         style={styles.input}
+        placeholder="Type a message..."
         value={message}
         onChangeText={setMessage}
-        placeholder="Type a message..."
       />
       <Button title="Send" onPress={handleSend} />
     </View>
@@ -34,22 +46,24 @@ const Chat = ({ messages, onSendMessage }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
     padding: 10,
   },
   message: {
     padding: 10,
-    backgroundColor: '#e0e0e0',
-    borderRadius: 10,
+    backgroundColor: 'lightgray',
+    borderRadius: 5,
     marginVertical: 5,
+  },
+  text: {
+    fontSize: 16,
   },
   input: {
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 5,
     paddingHorizontal: 10,
-    marginBottom: 10,
+    marginVertical: 10,
   },
 });
 

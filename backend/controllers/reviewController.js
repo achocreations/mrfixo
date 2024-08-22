@@ -33,18 +33,26 @@ exports.getReview = async (req, res, next) => {
     }
 };
 
-// @desc    Create review
+// @desc    Add review
 // @route   POST /api/reviews
 // @access  Private
-exports.createReview = async (req, res, next) => {
-    try {
-        const review = await Review.create(req.body);
-        res.status(201).json({ success: true, data: review });
+exports.addReview = async (req, res, next) => {
+    try{
+        const { serviceId, comment, rating } = req.body;
+        const review = new Review({
+            serviceId,
+            userId: req.user.id,
+            userName: req.user.name,
+            comment,
+            rating,
+          });
+          await review.save();
+          res.status(201).json({ success: true, data: review });
     } catch (err) {
         logger.error(`Error creating review: ${err.message}`);
         next(new ErrorResponse('Unable to create review', 500));
     }
-};
+  };
 
 // @desc    Update review
 // @route   PUT /api/reviews/:id

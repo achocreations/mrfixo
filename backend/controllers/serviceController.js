@@ -22,24 +22,6 @@ exports.createService = async (req, res, next) => {
     }
 };
 
-// @desc    Get all services
-// @route   GET /api/services
-// @access  Public
-exports.getServices = async (req, res, next) => {
-    try {
-        const services = await Service.find().populate('provider', 'name email');
-
-        res.status(200).json({
-            success: true,
-            data: services
-        });
-
-        logger.info('Retrieved all services');
-    } catch (err) {
-        next(err);
-    }
-};
-
 // @desc    Get single service
 // @route   GET /api/services/:id
 // @access  Public
@@ -83,30 +65,44 @@ exports.updateService = async (req, res, next) => {
     }
 };
 
-// @desc    Delete service
-// @route   DELETE /api/services/:id
-// @access  Private/Provider
-exports.deleteService = async (req, res, next) => {
+// @desc    Search service
+// @route   GET /api/services/:id
+// @access  Public
+exports.searchServices = async (req, res) => {
     try {
-        const service = await Service.findById(req.params.id);
-
-        if (!service) {
-            return next(new ErrorResponse(`Service not found with id of ${req.params.id}`, 404));
-        }
-
-        if (service.provider.toString() !== req.user.id) {
-            return next(new ErrorResponse(`User not authorized to delete this service`, 401));
-        }
-
-        await service.remove();
-
-        res.status(200).json({
-            success: true,
-            data: {}
-        });
-
-        logger.info(`Deleted service with id: ${req.params.id}`);
+        const { searchTerm, location, priceRange } = req.query;
+        const filters = {
+            ...(searchTerm && { name: { $regex: searchTerm, $options: 'i' } }),
+            ...(location && { location }),
+            ...(priceRange && { price: { $gte: priceRange[0], $lte: priceRange[1] } }),
+        };
+        
+        const services = await Service.find(filters);
+        res.status(200).json({ success: true, data: service });
     } catch (err) {
         next(err);
     }
 };
+
+// @desc    Search service
+// @route   GET /api/services/:id
+// @access  Public
+exports.findNearbyServices = async (req, res) => {
+    try {
+        const { latitude, longitude, distance } = req.query;
+        
+        const services = await Service.find({
+            location: {
+                $geoWithin: {
+                    $centerSphere: [[longitude, latitude], distance / 3963.2] // convert miles to radians
+                }
+            }
+        });
+        
+        res.status(200).json(services);
+    } catch (err) {
+        next(err);
+    }
+};
+  
+  

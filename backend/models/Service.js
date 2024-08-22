@@ -21,6 +21,13 @@ const ServiceSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    location: {
+        type: { type: String, default: 'Point' },
+        coordinates: {
+            type: [Number],
+            required: true,
+        },
+    },
     rating: { 
         type: Number, 
         default: 0 

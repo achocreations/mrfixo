@@ -1,3 +1,4 @@
+[[_TOC_]]
 # mrfixo
 
 Creating a mobile app to bring all workers and home owners under one platform. Please check the below features.
@@ -105,6 +106,11 @@ These features are more specialized or advanced and can be considered for future
 - Effort: Moderate
 - Reason: Offers flexibility for unique needs but may require significant backend adjustments and manual handling initially.
 
+## Process flowcart
+![image.png](mrfixo_process_flowchart.png)
+
+## Process flow
+![image.png](mrfixo_process_flow.png)
 ## Folder Structure
 
 ```bash
