@@ -1,11 +1,15 @@
 import logger from './logger';
+import { Alert } from 'react-native';
 
 export const handleError = (error) => {
-  // Log the error
-  logger.error(`An error occurred: ${error.message || 'Unknown error'}`);
-
-  // Display user-friendly error message
-  alert('Something went wrong. Please try again later.');
+  return (error) => {
+    console.error(error);
+    if (error.response && error.response.data && error.response.data.message) {
+      Alert.alert('Error', error.response.data.message);
+    } else {
+      Alert.alert('Error', 'An unexpected error occurred. Please try again.');
+    }
+  };
 };
 
 export const catchError = (fn) => async (...args) => {

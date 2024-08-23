@@ -9,11 +9,17 @@ const api = axios.create({
   timeout: 10000,
 });
 
-api.interceptors.request.use((config) => {
-  // Add authentication token or other headers here if needed
-  logger.info(`API Request: ${config.method.toUpperCase()} ${config.url}`);
-  return config;
-});
+api.interceptors.request.use(
+  async (config) => {
+    // Add authentication token or other headers here if needed
+    const token = await getToken();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    logger.info(`API Request: ${config.method.toUpperCase()} ${config.url}`);
+    return config;
+  }
+);
 
 api.interceptors.response.use(
   (response) => response,
