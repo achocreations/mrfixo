@@ -21,6 +21,10 @@ Creating a mobile app to bring all workers and home owners under one platform. P
 - Payment Gateway: Stripe, PayPal, Razorpay
 - Cloud Services: AWS, Google Cloud, or Azure
 
+## [Business Requirement Document](https://github.com/achocreations/mrfixo/wiki/Business-Requirement-Document-(BRD))
+
+## [Technical Design Document](https://github.com/achocreations/mrfixo/wiki/Technical-Design-Document-(TDD))
+
 ## Backlog
 ### High Priority
 These features are essential for enhancing user experience and driving engagement. They provide significant value with relatively low to moderate implementation complexity.
